@@ -4,6 +4,9 @@ package termcolor;
  * The colors that are available to color the text with.
  */
 public enum Color {
+    /** For when no color is wanted, but a Color object is required */
+    NONE(""),
+
     /** Foreground black color */
     FG_BLACK("\u001B[30m"),
     /** Foreground red color */

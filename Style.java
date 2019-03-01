@@ -4,6 +4,8 @@ package termcolor;
  * The styles that are available to style the text with.
  */
 public enum Style {
+    /** For when no style is wanted, but a Style object is required */
+    NONE(""),
     /** Clear all styles and set colors to default (White on Black) */
     RESET("\u001B[0m"),
 
