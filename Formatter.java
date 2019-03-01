@@ -1,0 +1,70 @@
+package termcolor;
+
+import java.util.EnumSet;
+
+/**
+ * This class provides methods for styling or coloring given strings.
+ */
+public class Formatter {
+
+    /**
+     * Format the string such that when printed, it would be printed with the wanted 
+     * style.
+     * @param style what style to format the given string with
+     * @param s the string to style
+     */
+    public String Style(Style style, String s) {
+        return Style(EnumSet.of(style), s);
+    }
+
+    /**
+     * Format the string such that when printed, it would be printed with the wanted 
+     * styles.
+     * @param styles what styles to format the given string with
+     * @param s the string to style
+     */
+    public String Style(EnumSet<Style> styles, String s) {
+        StringBuffer sb = new StringBuffer();
+        for(Style style: styles) {
+            sb.append(style);
+        }
+        sb.append(s);
+        sb.append(Style.RESET);
+        return sb.toString();
+    }
+
+    /**
+     * Format the string such that when printed, it would be printed with the wanted 
+     * color.
+     * @param color what color to format the given string with
+     * @param s the string to color
+     */
+    public String Color(Color color, String s) {
+        return Color(EnumSet.of(color), s);
+    }
+
+    /**
+     * Format the string such that when printed, it would be printed with the wanted
+     * colors.
+     * @param colors what colors to format the given string with
+     * @param s the string to color
+     */
+    public String Color(EnumSet<Color> colors, String s) {
+        StringBuffer sb = new StringBuffer();
+        for(Color color: colors) {
+            sb.append(color);
+        }
+        sb.append(s);
+        sb.append(Style.RESET);
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        Formatter f = new Formatter();
+        String a = "Hello World";
+        System.out.println(a);
+        System.out.println(f.Color(EnumSet.of(Color.FG_YELLOW, Color.BG_RED), a));
+        System.out.println(f.Style(Style.UNDERLINE, a));
+    }
+    
+}
