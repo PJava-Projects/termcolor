@@ -1,5 +1,6 @@
 package termcolor;
 
+import java.awt.Color;
 import java.util.EnumSet;
 
 /**
@@ -12,8 +13,9 @@ public class Formatter {
      * style.
      * @param style what style to format the given string with
      * @param s the string to style
+     * @return the formatted string
      */
-    public String Style(Style style, String s) {
+    public static String Style(Style style, String s) {
         return Style(EnumSet.of(style), s);
     }
 
@@ -22,8 +24,9 @@ public class Formatter {
      * styles.
      * @param styles what styles to format the given string with
      * @param s the string to style
+     * @return the formatted string
      */
-    public String Style(EnumSet<Style> styles, String s) {
+    public static String Style(EnumSet<Style> styles, String s) {
         StringBuffer sb = new StringBuffer();
         for(Style style: styles) {
             sb.append(style);
@@ -38,8 +41,9 @@ public class Formatter {
      * color.
      * @param color what color to format the given string with
      * @param s the string to color
+     * @return the formatted string
      */
-    public String Color(Color color, String s) {
+    public static String Color(Color color, String s) {
         return Color(EnumSet.of(color), s);
     }
 
@@ -48,8 +52,9 @@ public class Formatter {
      * colors.
      * @param colors what colors to format the given string with
      * @param s the string to color
+     * @return the formatted string
      */
-    public String Color(EnumSet<Color> colors, String s) {
+    public static String Color(EnumSet<Color> colors, String s) {
         StringBuffer sb = new StringBuffer();
         for(Color color: colors) {
             sb.append(color);
@@ -60,11 +65,10 @@ public class Formatter {
     }
 
     public static void main(String[] args) {
-        Formatter f = new Formatter();
         String a = "Hello World";
         System.out.println(a);
-        System.out.println(f.Color(EnumSet.of(Color.FG_YELLOW, Color.BG_RED), a));
-        System.out.println(f.Style(Style.UNDERLINE, a));
+        System.out.println(Formatter.Color(EnumSet.of(Color.FG_YELLOW, Color.BG_RED), a));
+        System.out.println(Formatter.Style(Style.UNDERLINE, a));
     }
     
 }
