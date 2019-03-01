@@ -1,6 +1,5 @@
 package termcolor;
 
-import java.awt.Color;
 import java.util.EnumSet;
 
 /**
