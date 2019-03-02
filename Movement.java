@@ -11,7 +11,7 @@ public class Movement {
      */
     public static void clearScreen() {
         System.out.printf("\033[2J");
-        System.out.flush();
+        setCursorTo(0, 0);
     }
 
     /**
@@ -26,7 +26,7 @@ public class Movement {
      * Move the cursor up n rows.
      * @param numTimes the number of rows to move up by
      */
-    public static void cursorUp(int numTimes) {
+    public static void setCursorUp(int numTimes) {
         System.out.printf("\033[%dA", numTimes);
         System.out.flush();
     }
@@ -35,7 +35,7 @@ public class Movement {
      * Move the cursor down n rows.
      * @param numTimes the number of rows to move down by
      */
-    public static void cursorDown(int numTimes) {
+    public static void setCursorDown(int numTimes) {
         System.out.printf("\033[%dB", numTimes);
         System.out.flush();
     }
@@ -44,7 +44,7 @@ public class Movement {
      * Move the cursor left n columns.
      * @param numTimes the number of columns to move left by
      */
-    public static void cursorLeft(int numTimes) {
+    public static void setCursorLeft(int numTimes) {
         System.out.printf("\033[%dD", numTimes);
         System.out.flush();
     }
@@ -53,7 +53,7 @@ public class Movement {
      * Move the cursor right n columns.
      * @param numTimes the number of columns to move right by
      */
-    public static void cursorRight(int numTimes) {
+    public static void setCursorRight(int numTimes) {
         System.out.printf("\033[%dC", numTimes);
         System.out.flush();
     }
@@ -63,7 +63,7 @@ public class Movement {
      * @param x the row to move the cursor to, starts with 0.
      * @param y the column to move the cursor to, starts with 0.
      */
-    public static void cursorTo(int x, int y) {
+    public static void setCursorTo(int x, int y) {
         System.out.printf("\033[%d;%dH", x, y);
         System.out.flush();
     }
